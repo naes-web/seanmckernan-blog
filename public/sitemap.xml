@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://seanmckernan.xyz/about/</loc>
+    <lastmod>2022-12-07T20:30:23+00:00</lastmod>
+  </url><url>
+    <loc>https://seanmckernan.xyz/posts/first-post/</loc>
+    <lastmod>2022-12-07T16:29:47+00:00</lastmod>
+  </url><url>
+    <loc>https://seanmckernan.xyz/</loc>
+    <lastmod>2022-12-07T16:29:47+00:00</lastmod>
+  </url><url>
+    <loc>https://seanmckernan.xyz/posts/</loc>
+    <lastmod>2022-12-07T16:29:47+00:00</lastmod>
+  </url><url>
+    <loc>https://seanmckernan.xyz/categories/</loc>
+  </url><url>
+    <loc>https://seanmckernan.xyz/tags/</loc>
+  </url>
+</urlset>

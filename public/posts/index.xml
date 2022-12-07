@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on naes-blog</title>
+    <link>https://seanmckernan.xyz/posts/</link>
+    <description>Recent content in Posts on naes-blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 07 Dec 2022 16:29:47 +0000</lastBuildDate><atom:link href="https://seanmckernan.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Post</title>
+      <link>https://seanmckernan.xyz/posts/first-post/</link>
+      <pubDate>Wed, 07 Dec 2022 16:29:47 +0000</pubDate>
+      
+      <guid>https://seanmckernan.xyz/posts/first-post/</guid>
+      <description>Introduction This is Bold text, and this is emphasized text.
+Visit the Hugo website!</description>
+    </item>
+    
+  </channel>
+</rss>

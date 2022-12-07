@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>naes-blog</title>
+    <link>https://seanmckernan.xyz/</link>
+    <description>Recent content on naes-blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 07 Dec 2022 16:29:47 +0000</lastBuildDate><atom:link href="https://seanmckernan.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://seanmckernan.xyz/about/</link>
+      <pubDate>Wed, 07 Dec 2022 20:30:23 +0000</pubDate>
+      
+      <guid>https://seanmckernan.xyz/about/</guid>
+      <description>My name is Sean McKernan. This is my blog. Mainly writing about my learning experiences with Linux and security, with the goal of sharing knowledge.
+This blog is build using the Hugo static site generator, and hosted on a VPS running nginx to serve the content.
+Theme credit: smol</description>
+    </item>
+    
+    <item>
+      <title>First Post</title>
+      <link>https://seanmckernan.xyz/posts/first-post/</link>
+      <pubDate>Wed, 07 Dec 2022 16:29:47 +0000</pubDate>
+      
+      <guid>https://seanmckernan.xyz/posts/first-post/</guid>
+      <description>Introduction This is Bold text, and this is emphasized text.
+Visit the Hugo website!</description>
+    </item>
+    
+  </channel>
+</rss>

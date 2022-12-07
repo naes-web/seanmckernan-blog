@@ -1,0 +1,8 @@
+#!/bin/sh
+USER=sean
+HOST=sean-serv1
+DIR=/var/www/seanmckernan
+
+hugo && rsync -avs --delete public/ ${USER}@${HOST}:/${DIR}
+
+exit 0
