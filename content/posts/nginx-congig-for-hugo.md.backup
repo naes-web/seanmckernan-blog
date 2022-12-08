@@ -3,7 +3,6 @@ title: "Selfhosted Blog Using Nginx and Hugo"
 date: 2022-12-07T21:09:50Z
 slug: 2022-12-07-nginx-congig-for-hugo
 type: posts
-draft: true
 tags:
   - linux
   - selfhost
