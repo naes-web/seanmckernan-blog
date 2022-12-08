@@ -1,8 +1,16 @@
 baseURL = "https://seanmckernan.xyz"
-title = "naes-blog"
+title = "sean-blog"
 themesDir = "./themes/"
 theme = "smol"
 paginate = 8
+
+#highlighting for code fences
+pygmentsCodeFences = true
+[markup.highlight]
+	codeFences = true
+	guessSyntax = true
+	hl_Lines = ""
+	tabWidth = 4
 
 [menu]
   [[menu.main]]
@@ -20,13 +28,16 @@ paginate = 8
     name = "About"
     url = "/about/"
     weight = 3
-
+[[menu.footer]]
+	name = "Email"
+	url = "mailto:mail@seanmckernan.xyz"
+	weight = "1"
 [[menu.footer]]
 	name = "GitHub"
 	url = "https://github.com/naes-web"
-	weight = "1"
+	weight = "2"
 [[menu.footer]]
 	name = "Twitter"
 	url = "https://twitter.com"
-	weight = "2"
+	weight = "3"
   

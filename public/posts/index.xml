@@ -5,15 +5,14 @@
     <link>https://seanmckernan.xyz/posts/</link>
     <description>Recent content in Posts on naes-blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 07 Dec 2022 16:29:47 +0000</lastBuildDate><atom:link href="https://seanmckernan.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Dec 2022 21:09:50 +0000</lastBuildDate><atom:link href="https://seanmckernan.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>First Post</title>
-      <link>https://seanmckernan.xyz/posts/first-post/</link>
-      <pubDate>Wed, 07 Dec 2022 16:29:47 +0000</pubDate>
+      <title>Selfhosted Blog Using Nginx and Hugo</title>
+      <link>https://seanmckernan.xyz/posts/2022-12-07-nginx-congig-for-hugo/</link>
+      <pubDate>Wed, 07 Dec 2022 21:09:50 +0000</pubDate>
       
-      <guid>https://seanmckernan.xyz/posts/first-post/</guid>
-      <description>Introduction This is Bold text, and this is emphasized text.
-Visit the Hugo website!</description>
+      <guid>https://seanmckernan.xyz/posts/2022-12-07-nginx-congig-for-hugo/</guid>
+      <description>Let me start with a disclaimer. I am not a webdev, I know HTML and CSS (kinda), and I have a basic understanding of JavaScript. I was still able to pull this blog off through some trail and error. The process was a learning experience, and I hope to document it with this post, maybe someone will find it useful.</description>
     </item>
     
   </channel>

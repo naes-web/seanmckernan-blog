@@ -1,0 +1,14 @@
+---
+title: "Selfhosted Blog Using Nginx and Hugo"
+date: 2022-12-07T21:09:50Z
+slug: 2022-12-07-nginx-congig-for-hugo
+type: posts
+draft: true
+tags:
+  - linux
+  - selfhost
+  - nginx
+  - hugo
+---
+
+Let me start with a disclaimer. I am not a webdev, I know HTML and CSS (kinda), and I have a *basic* understanding of JavaScript. I was still able to pull this blog off through a lot of trail and error.  

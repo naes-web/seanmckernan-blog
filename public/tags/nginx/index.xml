@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>naes-blog</title>
-    <link>https://seanmckernan.xyz/</link>
-    <description>Recent content on naes-blog</description>
+    <title>nginx on naes-blog</title>
+    <link>https://seanmckernan.xyz/tags/nginx/</link>
+    <description>Recent content in nginx on naes-blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 07 Dec 2022 21:09:50 +0000</lastBuildDate><atom:link href="https://seanmckernan.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Dec 2022 21:09:50 +0000</lastBuildDate><atom:link href="https://seanmckernan.xyz/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Selfhosted Blog Using Nginx and Hugo</title>
       <link>https://seanmckernan.xyz/posts/2022-12-07-nginx-congig-for-hugo/</link>
@@ -13,17 +13,6 @@
       
       <guid>https://seanmckernan.xyz/posts/2022-12-07-nginx-congig-for-hugo/</guid>
       <description>Let me start with a disclaimer. I am not a webdev, I know HTML and CSS (kinda), and I have a basic understanding of JavaScript. I was still able to pull this blog off through some trail and error. The process was a learning experience, and I hope to document it with this post, maybe someone will find it useful.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://seanmckernan.xyz/about/</link>
-      <pubDate>Wed, 07 Dec 2022 20:30:23 +0000</pubDate>
-      
-      <guid>https://seanmckernan.xyz/about/</guid>
-      <description>My name is Sean McKernan. This is my blog. Mainly writing about my learning experiences with Linux and security, with the goal of sharing knowledge.
-This blog is build using the Hugo static site generator, and hosted on a VPS running nginx to serve the content.
-Theme credit: smol</description>
     </item>
     
   </channel>
