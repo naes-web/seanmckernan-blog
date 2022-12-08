@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://seanmckernan.xyz/categories/</loc>
+    <lastmod>2022-12-07T21:09:50+00:00</lastmod>
+  </url><url>
     <loc>https://seanmckernan.xyz/tags/hugo/</loc>
     <lastmod>2022-12-07T21:09:50+00:00</lastmod>
   </url><url>
@@ -26,9 +29,10 @@
     <loc>https://seanmckernan.xyz/tags/</loc>
     <lastmod>2022-12-07T21:09:50+00:00</lastmod>
   </url><url>
+    <loc>https://seanmckernan.xyz/categories/tech/</loc>
+    <lastmod>2022-12-07T21:09:50+00:00</lastmod>
+  </url><url>
     <loc>https://seanmckernan.xyz/about/</loc>
     <lastmod>2022-12-07T20:30:23+00:00</lastmod>
-  </url><url>
-    <loc>https://seanmckernan.xyz/categories/</loc>
   </url>
 </urlset>

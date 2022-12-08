@@ -12,6 +12,12 @@ pygmentsCodeFences = true
 	hl_Lines = ""
 	tabWidth = 4
 
+#parameters
+# Parameters
+[params]
+    subtitle = "Personal Documentation and Tutorials"
+    dateFmt = "02.01.2006 15:04"
+
 [menu]
   [[menu.main]]
     identifier = "posts"
@@ -28,6 +34,8 @@ pygmentsCodeFences = true
     name = "About"
     url = "/about/"
     weight = 3
+
+#footer
 [[menu.footer]]
 	name = "Email"
 	url = "mailto:mail@seanmckernan.xyz"
