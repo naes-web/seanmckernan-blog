@@ -2,13 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://seanmckernan.xyz/tags/hugo/</loc>
+    <lastmod>2022-12-07T21:09:50+00:00</lastmod>
+  </url><url>
+    <loc>https://seanmckernan.xyz/tags/linux/</loc>
+    <lastmod>2022-12-07T21:09:50+00:00</lastmod>
+  </url><url>
+    <loc>https://seanmckernan.xyz/tags/nginx/</loc>
+    <lastmod>2022-12-07T21:09:50+00:00</lastmod>
+  </url><url>
+    <loc>https://seanmckernan.xyz/posts/</loc>
+    <lastmod>2022-12-07T21:09:50+00:00</lastmod>
+  </url><url>
+    <loc>https://seanmckernan.xyz/</loc>
+    <lastmod>2022-12-07T21:09:50+00:00</lastmod>
+  </url><url>
+    <loc>https://seanmckernan.xyz/tags/selfhost/</loc>
+    <lastmod>2022-12-07T21:09:50+00:00</lastmod>
+  </url><url>
+    <loc>https://seanmckernan.xyz/posts/2022-12-07-nginx-congig-for-hugo/</loc>
+    <lastmod>2022-12-07T21:09:50+00:00</lastmod>
+  </url><url>
+    <loc>https://seanmckernan.xyz/tags/</loc>
+    <lastmod>2022-12-07T21:09:50+00:00</lastmod>
+  </url><url>
     <loc>https://seanmckernan.xyz/about/</loc>
     <lastmod>2022-12-07T20:30:23+00:00</lastmod>
   </url><url>
     <loc>https://seanmckernan.xyz/categories/</loc>
-  </url><url>
-    <loc>https://seanmckernan.xyz/</loc>
-  </url><url>
-    <loc>https://seanmckernan.xyz/tags/</loc>
   </url>
 </urlset>

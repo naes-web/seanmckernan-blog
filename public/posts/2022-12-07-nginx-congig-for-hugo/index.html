@@ -15,7 +15,7 @@
 <body>
 	<header>
 	===============<br>
-	== <a href="https://seanmckernan.xyz">naes-blog</a> ==<br>
+	== <a href="https://seanmckernan.xyz">sean-blog</a> ==<br>
 	===============
 	<div style="float: right;"></div><br>
 	<p>
@@ -50,7 +50,124 @@
         	       
 
 			<div>
-				<p>Let me start with a disclaimer. I am not a webdev, I know HTML and CSS (kinda), and I have a <em>basic</em> understanding of JavaScript. I was still able to pull this blog off through some trail and error. The process was a learning experience, and I hope to document it with this post, maybe someone will find it useful.</p>
+				<p>Let me start with a disclaimer. I am not a webdev, I know HTML and CSS (kinda), and I have a <em>basic</em> understanding of JavaScript. I was still able to pull this blog off through some trial and error. The process was a learning experience, and I hope to document it with this post, maybe someone will find it useful. I&rsquo;m not the first person to write about this either, a quick google of something like &ldquo;nginx hugo ssl&rdquo; will pull up loads of other guides.</p>
+<p>I originally considered selfhosting Drupal, but after some digging I found it didnt really fit my needs. I just needed a static website to serve mainly text, to document my learning process and share with others. I didn&rsquo;t want to get side tracked messing around with a LAMP or LEMP stack just yet. Then I stumbled across static site generators. I looked a Jekyll, but decided it required too many dependencies and finally, I settled on Hugo.</p>
+<p>Hugo can take simple markdown files and spit out a website like this one in fractions of a second, all with a single binary.</p>
+<h1 id="prerequisites">Prerequisites</h1>
+<ul>
+<li>This post assumes some level of familiarity with Linux</li>
+<li>You have a registered domain name.</li>
+<li>You have a VPS running Ubuntu 22.04LTS (config should be similar on other distros, or older versions of Ubuntu. Probably&hellip;).</li>
+<li>You can ssh into a non-root account on your VPS.</li>
+<li>Configuring DNS records, ssh-keygen, and other initial server setup is outside the scope of this guide.</li>
+</ul>
+<h1 id="installing-hugo">Installing Hugo</h1>
+<p>I only have Hugo installed on my main PC, meaning it does not need to be hosted on the VPS, which saves space. There are many ways to install the package, but the method I used (and the method recommended by <a href="https://gohugo.io/installation/linux/">Hugo</a>) is the Snap package manager. To install Snap, simply run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install snapd
+</span></span></code></pre></div><p>Then installing Hugo is as simple as running</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo snap install hugo
+</span></span></code></pre></div><ul>
+<li>Note that this will install the extended edition, which has some extra features. <a href="https://gohugo.io/installation/linux/#editions">It is recommended to install the extended version</a>.</li>
+</ul>
+<h1 id="making-your-fist-site">Making your Fist Site</h1>
+<h2 id="adding-a-theme">Adding a Theme</h2>
+<p>Make sure you are in the directory that you want to build the new site in, then run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hugo new site &lt;sitename&gt;
+</span></span></code></pre></div><p>This will generate a new directory, with the skeleton of your new site inside. The next step is to install a theme. Check out <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a> and pick one you like. I went with a theme named <a href="https://github.com/colorchestra/smol">smol</a>, as it features no JavaScript, no tracking or analytics and no external dependencies. To install a theme, <code>cd</code> into the directory <code>&lt;sitename&gt;/themes</code> and run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git clone https://github.com/&lt;random-user&gt;/&lt;your-theme&gt;
+</span></span></code></pre></div><p>Replace the URL as appropriate for your selected theme, and follow the configuration guide that comes with it. You will be editing the <code>config.toml</code> file to set parameters and make use of all your chosen theme has to offer. Most themes come with an example <code>config.toml</code> in their respective directory within the <code>themes</code> directory.</p>
+<h3 id="adding-a-post">Adding a Post</h3>
+<p>Creating new posts is as simple as running</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hugo new posts/first-post.md
+</span></span></code></pre></div><p>This will create a new post in the <code>./content/posts/</code> directory. We edit these posts using <a href="https://www.markdownguide.org/getting-started/">Markdown</a>. This is a lightweight markup language, used to add formatting to plaintext documents. I personally have been using Markdown to keep notes for a number of years, its really easy to pick up with simple syntax, allowing us to focus on the content of our blog. You can edit <code>.md</code> files using the text editor of your choice. I personally use <a href="https://ghostwriter.kde.org/">ghostwriter</a>.</p>
+<p>At the top of the file you should see some automatically generated text, this is called the Front Matter, which is better explained by the <a href="https://gohugo.io/content-management/front-matter/">docs</a>. I believe it changes depending on what theme you have installed, but for example, heres mine</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-YAML" data-lang="YAML"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;Selfhosted Blog Using Nginx and Hugo&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">date</span>: <span style="color:#e6db74">2022-12-07T21:09:50Z</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">slug</span>: <span style="color:#e6db74">2022-12-07</span>-<span style="color:#ae81ff">nginx-congig-for-hugo</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">type</span>: <span style="color:#ae81ff">posts</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">draft</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">tags</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">linux</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">selfhost</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">nginx</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">hugo</span>
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>The Front Matter (in this case) is in YAML format, but keep in mind your config could be different, either TOML (like the config.toml we edited earlier) or JSON. It&rsquo;s pretty self explanatory;</p>
+<p><code>title:</code>is the title printed at the top of the page.</p>
+<p><code>date:</code> is the date and time when you created the file.</p>
+<p><code>slug:</code> is the URL that will be used when you build the site</p>
+<p><code>type</code> is where the file will sit under the <code>&lt;your-site&gt;/content/</code> directory. In this case <code>&lt;yoursite&gt;/content/posts/</code></p>
+<p><code>draft:</code> Marks the post as a draft, meaning it will not get included in the build. Make sure to change this to <code>false</code> when you are ready to publish your site.</p>
+<p><code>tags:</code> adds tags to the post, allowing users to browse your content based on tags</p>
+<h2 id="building-the-site-for-testing">Building the Site for Testing</h2>
+<p>After you&rsquo;re done writing your fist post, save it and <code>cd</code> to the root directory of the website. Then run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hugo server -D
+</span></span></code></pre></div><p>With the default configuration, this will start up a webserver on <code>localhost:1313</code>, the <code>-D</code> flag makes sure Hugo builds documents marked as drafts too, allowing you to preview changes to the site in real time. I usually have my browser and Markdown editor side-by-side, so I can check formatting. You can edit anything in the root directory of the site and view the changes almost immediately this way.</p>
+<h1 id="nginx-config-for-ssl">Nginx Config for SSL</h1>
+<h2 id="deploying-the-build-to-our-vps">Deploying the Build to our VPS</h2>
+<p>The <a href="https://gohugo.io/hosting-and-deployment/">official docs on hosting and deployment</a> cover most use cases. In my case I have SSH access to my server using a non-root account, so I followed the simple guide on creating a shell script using rsync. Replace the values in &lt;&gt; brackets as appropriate. Make sure to save this script to the root directory of your site. <code>nano deploy</code> to create the file, edit as needed, save it and run <code>chmod -x deploy</code> to make it executable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>USER<span style="color:#f92672">=</span>&lt;your-user&gt;
+</span></span><span style="display:flex;"><span>HOST<span style="color:#f92672">=</span>&lt;your-server&gt;
+</span></span><span style="display:flex;"><span>DIR<span style="color:#f92672">=</span>/var/www/&lt;website-name&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hugo <span style="color:#f92672">&amp;&amp;</span> rsync -avs --delete public/ <span style="color:#e6db74">${</span>USER<span style="color:#e6db74">}</span>@<span style="color:#e6db74">${</span>HOST<span style="color:#e6db74">}</span>:/<span style="color:#e6db74">${</span>DIR<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exit <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>First off, the <code>hugo</code> command. This builds the site to the <code>public</code> directory by default, but you can edit this with the <code>--destination</code> flag.</p>
+<p>Now for <code>rsync</code>. For a great guide on how <code>rsync</code> works see <a href="https://rsync.samba.org/how-rsync-works.html">this document</a>. The flags <code>rsync -avs --delete</code> are <code>--archive</code>, <code>--verbose</code>, <code>--compress</code>. This will recursively transfer all the files from the <code>public/</code> directory. The files are transfered in archive mode, meaning symbolic links, attributes, permissions, etc. are preserved in the transfer. And finally, the <code>--delete</code> flag. This deletes files in the destination directory if they do not exist at the source.</p>
+<p>So, all in, this script will build my site, take it from my PC, transfer it to my VPS at the specified directory, and delete any unnecessary files at the destination. <strong>Now to set up Nginx to serve our static site.</strong></p>
+<h2 id="nginx-installation-and-config">Nginx Installation and Config</h2>
+<p>This post is getting long, so I&rsquo;ll try to keep this section brief. Serving static content with Nginx is actually really easy, took me a while to understand what the config files were doing. I found <a href="https://www.freecodecamp.org/news/the-nginx-handbook/#introduction-to-nginx">this guide from freeCodeCamp</a> really helpful.</p>
+<p>Use ssh to connect to your server, then install Nginx. It&rsquo;s available on Ubuntu&rsquo;s default repository, so we can simply run <code>sudo apt install nginx</code>. If you have a firewall enabled on your server, you need to configure it to allow access to Nginx.</p>
+<p>Next we need to create and edit the config file for our site. Config files for sites are stored in <code>/etc/nginx/sites-available/</code> and symlinked to <code>/etc/nginx/sites-enabled</code>. Use the <code>cp</code> utility to make a copy of the default config in case you mess up.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cd /etc/nginx/sites-available/
+</span></span><span style="display:flex;"><span>cp default your-site
+</span></span><span style="display:flex;"><span>vim your-site
+</span></span></code></pre></div><p>You should now see a basic server configuration with lots of comments, don&rsquo;t worry too much about them right now (delete them if you want), we want to get a config that looks something like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>server <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>       listen 80;		<span style="color:#75715e"># listen on port 80 for ipv4</span>
+</span></span><span style="display:flex;"><span>       listen <span style="color:#f92672">[</span>::<span style="color:#f92672">]</span>:80; 	<span style="color:#75715e"># listen on port 80 for ipv6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       server_name your-site.com;		<span style="color:#75715e"># this should be the URL of your website</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       root /var/www/your-site.com;	<span style="color:#75715e"># path to the directory of hugo build</span>
+</span></span><span style="display:flex;"><span>       index index.html;				<span style="color:#75715e"># hugo will generate index.html</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       location / <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>			   <span style="color:#75715e">#attempt to serve request as file, then dir, then 404</span>
+</span></span><span style="display:flex;"><span>               try_files $uri $uri/ <span style="color:#f92672">=</span>404;	
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Enabling this site is as simple as symlinking the file we created to the <code>sites-enabled</code> directory. It is best practice to use the absolute file paths when creating symlinks so they don&rsquo;t get messed up. We also need to remove the <code>default</code> symlink from <code>sites-enabled</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo rm /etc/nginx/sites-enabled/default
+</span></span><span style="display:flex;"><span>sudo ln -s /etc/nginx/sites-available/your-site /etc/nginx/sites-enabled/your-site
+</span></span></code></pre></div><p>Make sure Nginx is running and enable it at boot with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo systemctl start nginx
+</span></span><span style="display:flex;"><span>sudo systemctl enable nginx
+</span></span></code></pre></div><p>Now, if you have your DNS records correct, you should be able to visit <code>your-site.com</code> and see what you&rsquo;ve built.</p>
+<h2 id="adding-ssl">Adding SSL</h2>
+<p>For this example we are going to use Certbot, built by the EFF. Visit <a href="https://certbot.eff.org/">this link</a> for specific instructions for your setup. For Ubuntu 20.04LTS;</p>
+<ol>
+<li>You need to install snapd on your server, if you don&rsquo;t already have it.</li>
+<li>Update snapd.</li>
+<li>Remove any old Certbot packages.</li>
+<li>Install Certbot using snap.</li>
+<li>Move Certbot in order to run it.</li>
+<li>Get and install the certificates, which automatically edits your Nginx config.</li>
+</ol>
+<p>That looks something like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install snapd
+</span></span><span style="display:flex;"><span>sudo snap install core; sudo snap refresh core
+</span></span><span style="display:flex;"><span>sudo apt remove certbot
+</span></span><span style="display:flex;"><span>sudo ln -s /snap/bin/certbot /usr/bin/certbot
+</span></span><span style="display:flex;"><span>sudo certbot --nginx
+</span></span></code></pre></div><p>Certbot should renew the certs automatically, run <code>sudo certbot renew --dry-run</code> to test this out.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Finally, you should be able to visit <code>https://your-site.com</code> and browse your shiny new site. Thank you for reading this far, and I hope you find this guide useful. <strong>Keep a look out for my next post about hardening your server and Nginx config</strong></p>
 
 			</div>
 		</article>
@@ -72,8 +189,8 @@
 
 
 	<footer>
-	<p>&copy; 2022 <a href="https://seanmckernan.xyz"><b>naes-blog</b></a>.
-	<a href="mailto:mail@seanmckernan.xyz"><b>email</b></a>.
+	<p>&copy; 2022 <a href="https://seanmckernan.xyz"><b>sean-blog</b></a>.
+	<a href="mailto:mail@seanmckernan.xyz"><b>Email</b></a>.
 	<a href="https://github.com/naes-web"><b>GitHub</b></a>.
 	<a href="https://twitter.com"><b>Twitter</b></a>.
 	</p>

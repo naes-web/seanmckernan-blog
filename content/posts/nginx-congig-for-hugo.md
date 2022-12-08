@@ -2,7 +2,10 @@
 title: "Selfhosted Blog Using Nginx and Hugo"
 date: 2022-12-07T21:09:50Z
 slug: 2022-12-07-nginx-congig-for-hugo
+draft: false
 type: posts
+categories:
+  - tech
 tags:
   - linux
   - selfhost
@@ -12,7 +15,7 @@ tags:
 
 Let me start with a disclaimer. I am not a webdev, I know HTML and CSS (kinda), and I have a *basic* understanding of JavaScript. I was still able to pull this blog off through some trial and error. The process was a learning experience, and I hope to document it with this post, maybe someone will find it useful. I'm not the first person to write about this either, a quick google of something like "nginx hugo ssl" will pull up loads of other guides.
 
-I originally considered selfhosting Drupal, but after some digging I found it didnt really fit my needs. I just needed a static website to serve mainly text, to document my learning process and share with others. I didn't want to get side tracked messing around with a LAMP or LEMP stack just yet. Then I stumbled across static site generators. I looked a Jekyll, but decided it required too many dependencies and finally, I settled on Hugo. 
+I originally considered selfhosting Drupal, but after some digging I found it didn't really fit my needs. I just needed a static website to serve mainly text, to document my learning process and share with others. I didn't want to get side tracked messing around with a LAMP or LEMP stack just yet. Then I stumbled across static site generators. I looked a Jekyll, but decided it required too many dependencies and finally, I settled on Hugo. 
 
 Hugo can take simple markdown files and spit out a website like this one in fractions of a second, all with a single binary.
 
@@ -85,7 +88,7 @@ After you're done writing your fist post, save it and ```cd``` to the root direc
 ```
 hugo server -D
 ```
-With the default configuration, this will start up a webserver on ```localhost:1313```, the ```-D``` flag makes sure Hugo builds documents marked as drafts too, allowing you to preview changes to the site in real time. I usually have my browser and Markdown editor side-by-side, so I can check formatting. You can edit anything in the root directory of the site and view the changes almost immediately this way.
+With the default configuration, this will start up a webserver on ```localhost:1313```, the ```-D``` flag makes sure Hugo builds documents marked as drafts too, allowing you to preview changes to the site as you make them. I usually have my browser and Markdown editor side-by-side, so I can check formatting. You can edit anything in the root directory of the site and view the changes almost immediately this way.
 
 # Nginx Config for SSL
 ## Deploying the Build to our VPS
@@ -103,7 +106,7 @@ exit 0
 
 First off, the ```hugo``` command. This builds the site to the ```public``` directory by default, but you can edit this with the ```--destination``` flag.
 
-Now for ```rsync```. For a great guide on how ```rsync``` works see [this document](https://rsync.samba.org/how-rsync-works.html). The flags ```rsync -avs --delete``` are ```--archive```, ```--verbose```, ```--compress```. This will recursively transfer all the files from the ```public/``` directory. The files are transfered in archive mode, meaning symbolic links, attributes, permissions, etc. are preserved in the transfer. And finally, the ```--delete``` flag. This deletes files in the destination directory if they do not exist at the source. 
+Now for ```rsync```. For a great guide on how ```rsync``` works see [this document](https://rsync.samba.org/how-rsync-works.html). The flags ```rsync -avs --delete``` are ```--archive```, ```--verbose```, ```--compress```. This will recursively transfer all the files from the ```public/``` directory. The files are transferred in archive mode, meaning symbolic links, attributes, permissions, etc. are preserved in the transfer. And finally, the ```--delete``` flag. This deletes files in the destination directory if they do not exist at the source. 
 
 So, all in, this script will build my site, take it from my PC, transfer it to my VPS at the specified directory, and delete any unnecessary files at the destination. **Now to set up Nginx to serve our static site.**
 
